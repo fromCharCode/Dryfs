@@ -28,7 +28,7 @@ public class Main extends Application {
         //Scene scene = new Scene(root, width, height);
         Pane root = paneFactory.createPane(PaneType.GAMESCENE, primaryStage);
 
-        //root = playerMenu;
+        root = playerMenu;
         System.out.println(root);
 
         Scene scene = new Scene(root, 800, 600);

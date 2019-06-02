@@ -51,7 +51,8 @@ public class GameScene extends Scene {
 
     // == private methods ==
     private void init(){
-        initMenu();
+        // initTopMenu here
+        initMenu(); // rename to initLeftMenu()
         initCanvas();
     }
 
@@ -65,6 +66,10 @@ public class GameScene extends Scene {
         VBox left = new VBox();
         left.setSpacing(10f);
         left.getChildren().addAll(cp, brush, brushes, clear);
+
+        // todo: create upper menu with dropdowns
+        // File | Edit | ... |Exit
+        // root.setTop();
 
         menuWidth = left.getWidth();
 

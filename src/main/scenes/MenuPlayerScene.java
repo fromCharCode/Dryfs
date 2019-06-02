@@ -189,7 +189,7 @@ public class MenuPlayerScene extends Scene {
         }
 
         // 1080 must be replaced with height
-        menu.setSpacing(1080/menu.getChildren().size());
+        menu.setSpacing(800/menu.getChildren().size());
 
         root.getChildren().add(menu);
 
