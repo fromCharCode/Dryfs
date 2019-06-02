@@ -8,8 +8,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
-public class MenuMainScene extends Pane {
+public class MenuMainScene extends Scene {
 
     Label playLabel;
     Label optLabel;
@@ -18,7 +19,8 @@ public class MenuMainScene extends Pane {
     HBox root;
     VBox menu;
 
-    public MenuMainScene() {
+    public MenuMainScene(Stage stage) {
+        super(stage);
         init();
         setUpPane();
         getChildren().add(root);

@@ -2,26 +2,22 @@ package main.scenes;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.event.EventType;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import main.BrushType;
+import main.debug.Logger;
 
-import java.text.DecimalFormat;
-
-public class GameScene extends Pane {
+public class GameScene extends Scene {
 
     // == attributes ==
     // Color Picker
@@ -35,6 +31,9 @@ public class GameScene extends Pane {
     ComboBox brushes;
     static BrushType currentType = BrushType.OVAL;
     static BorderPane root;
+    HBox clear;
+    Button clearCanvas;
+    ColorPicker bcp;
 
     Canvas gameCanvas;
 
@@ -42,7 +41,8 @@ public class GameScene extends Pane {
 
 
     // == constructor ==
-    public GameScene(){
+    public GameScene(Stage stage){
+        super(stage);
         init();
         setUpPane();
         getChildren().add(root);
@@ -64,7 +64,7 @@ public class GameScene extends Pane {
 
         VBox left = new VBox();
         left.setSpacing(10f);
-        left.getChildren().addAll(cp, brush, brushes);
+        left.getChildren().addAll(cp, brush, brushes, clear);
 
         menuWidth = left.getWidth();
 
@@ -105,16 +105,27 @@ public class GameScene extends Pane {
                 currentType = (BrushType) brushes.getValue();
             }
         });
+
+        clear = new HBox();
+        bcp = new ColorPicker();
+        clearCanvas = new Button("Clear Canvas");
+        clearCanvas.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                drawBackground(bcp.getValue());
+            }
+        });
+        clear.getChildren().addAll(bcp, clearCanvas);
     }
 
     private void initCanvas(){
         // create the canvas, get the part for drawing
-        gameCanvas = new Canvas(1920, 1080);
+        gameCanvas = new Canvas(1700, 800);
         GraphicsContext gc = gameCanvas.getGraphicsContext2D();
 
         // draw background
         gc.setFill(Color.rgb(200, 200, 200));
-        gc.fillRect(0, 0, 1920, 1080);
+        gc.fillRect(0, 0, 1700, 800);
 
         gameCanvas.setOnMouseDragged(new EventHandler<MouseEvent>() {
             @Override
@@ -123,13 +134,24 @@ public class GameScene extends Pane {
                 gc.setLineWidth(1f);
 
 
-                System.out.println("Mouse: " + event.getSceneX() + "| " + event.getSceneY() + " <|> our logical x: " + (event.getSceneX() + root.getLeft().getScaleX()));
-                System.out.println("Distance between: " + (event.getSceneX() - (event.getSceneX() - root.getLeft().getScaleX())));
+                // == logging mouse positions during drawing
+                double mx = event.getSceneX();
+                double my = event.getSceneY();
+                String content = String.format("MouseX: %.2f", event.getSceneX());
+                content += String.format("| MouseY: %.2f", event.getSceneY());
+                Logger.log(this.getClass(), content);
+                // =========================================
 
-                VBox tmp = (VBox) root.getLeft();
+                VBox tmp = (VBox) root.getLeft(); // needed for calculation of mouseX
                 draw(gc, event.getSceneX() - tmp.getWidth(), event.getSceneY(), slider.getValue());
             }
         });
+    }
+
+    public void drawBackground(Color c){
+        GraphicsContext gc = gameCanvas.getGraphicsContext2D();
+        gc.setFill(c);
+        gc.fillRect(0, 0, width, height);
     }
 
     private void draw(GraphicsContext gc, double mouseX, double mouseY, double sliderValue){

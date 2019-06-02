@@ -33,7 +33,7 @@ public class MenuPlayerScene extends Scene {
     Label xScale;
     Button decXScale;
     Label xScaleValue;
-    int xs = 1920;
+    int xs = 1700;
     Button incXScale;
     // optional: button for infinite x-scale
 
@@ -41,7 +41,7 @@ public class MenuPlayerScene extends Scene {
     Label yScale;
     Button decYScale;
     Label yScaleValue;
-    int ys = 1080;
+    int ys = 800;
     Button incYScale;
     // optional: button for infinite x-scale
 

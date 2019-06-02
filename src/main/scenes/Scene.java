@@ -6,18 +6,15 @@ import javafx.stage.Stage;
 
 public abstract class Scene extends Pane {
 
-    double width = 1920;
-    double height = 1080;
+    // those will be bound to window size later
+    double width = 1700;
+    double height = 800;
 
     String title = "Draw your Freak Show";
     public Stage stage;
 
     public Scene(Stage stage) {
         this.stage = stage;
-    }
-
-    public Pane getPane() {
-        return this;
     }
 
     public Stage getStage() {

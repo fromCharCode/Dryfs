@@ -17,11 +17,11 @@ public class PaneFactory {
         switch (type.getInstance()){
             case MAINMENU:
                 log("Creating MainMenu..");
-                root = new MenuMainScene();
+                root = new MenuMainScene(stage);
                 break;
             case GAMESCENE:
                 log("Creating GameScene..");
-                root = new GameScene();
+                root = new GameScene(stage);
                 break;
             case PLAYERMENU:
                 log("Creating PlayerMenu..");
@@ -29,7 +29,7 @@ public class PaneFactory {
                 break;
             case OPTIONSMENU:
                 log("Creating OptionsMenu..");
-                root = new MenuOptionsScene();
+                root = new MenuOptionsScene(stage);
                 break;
 
                 default: return null;

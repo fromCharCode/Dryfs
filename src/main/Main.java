@@ -28,11 +28,13 @@ public class Main extends Application {
         //Scene scene = new Scene(root, width, height);
         Pane root = paneFactory.createPane(PaneType.GAMESCENE, primaryStage);
 
-        root = playerMenu;
+        //root = playerMenu;
         System.out.println(root);
 
-        Scene scene = new Scene(root, 1920, 1080);
-        primaryStage.setTitle("Draw");
+        Scene scene = new Scene(root, 800, 600);
+        primaryStage.setTitle("Draw your Freak Show");  // replace with root.getTitle()
+        primaryStage.setResizable(true);
+        primaryStage.setFullScreen(false);
         primaryStage.setScene(scene);
         primaryStage.show();
 
@@ -44,9 +46,5 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-    }
-
-    public static void setScene(Parent node){
-
     }
 }
