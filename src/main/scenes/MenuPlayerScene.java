@@ -94,7 +94,7 @@ public class MenuPlayerScene extends Scene {
             @Override
             public void handle(ActionEvent event) {
                 secAmount--;
-                secAmountText.setText(Integer.toString(secAmount));
+                updateLabels();
             }
         });
 
@@ -102,7 +102,7 @@ public class MenuPlayerScene extends Scene {
             @Override
             public void handle(ActionEvent event) {
                 secAmount++;
-                secAmountText.setText(Integer.toString(secAmount));
+                updateLabels();
             }
         });
 
@@ -114,7 +114,7 @@ public class MenuPlayerScene extends Scene {
             @Override
             public void handle(ActionEvent event) {
                 xs--;
-                xScaleValue.setText(Integer.toString(xs));
+                updateLabels();
             }
         });
 
@@ -122,7 +122,7 @@ public class MenuPlayerScene extends Scene {
             @Override
             public void handle(ActionEvent event) {
                 xs++;
-                xScaleValue.setText(Integer.toString(xs));
+                updateLabels();
             }
         });
 
@@ -130,7 +130,7 @@ public class MenuPlayerScene extends Scene {
             @Override
             public void handle(ActionEvent event) {
                 ys--;
-                yScaleValue.setText(Integer.toString(ys));
+                updateLabels();
             }
         });
 
@@ -138,7 +138,7 @@ public class MenuPlayerScene extends Scene {
             @Override
             public void handle(ActionEvent event) {
                 ys++;
-                yScaleValue.setText(Integer.toString(ys));
+                updateLabels();
             }
         });
 
@@ -195,6 +195,12 @@ public class MenuPlayerScene extends Scene {
 
         root.getChildren().add(playButton);
 
+    }
+
+    private void updateLabels(){
+        xScaleValue.setText(Integer.toString(xs));
+        yScaleValue.setText(Integer.toString(ys));
+        secAmountText.setText(Integer.toString(secAmount));
     }
 
 }

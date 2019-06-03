@@ -11,13 +11,13 @@ public abstract class Scene extends Pane {
     double height = 800;
 
     String title = "Draw your Freak Show";
-    public Stage stage;
+    Stage stage;
 
-    public Scene(Stage stage) {
+    Scene(Stage stage) {
         this.stage = stage;
     }
 
-    public Stage getStage() {
+    Stage getStage() {
         return stage;
     }
 
@@ -28,4 +28,5 @@ public abstract class Scene extends Pane {
     public void setTitle(String title) {
         this.title = title;
     }
+
 }

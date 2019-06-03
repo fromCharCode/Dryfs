@@ -1,15 +1,14 @@
 package main;
 
 import javafx.application.Application;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import main.scenes.PaneFactory;
 import main.scenes.PaneType;
+import main.types.BrushType;
 
-import static main.BrushType.*;
+import static main.types.BrushType.*;
 
 public class Main extends Application {
 
