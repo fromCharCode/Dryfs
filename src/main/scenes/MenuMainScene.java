@@ -1,13 +1,21 @@
+/*
+ * Author:              fromCharCode - David Schneider
+ * Contribution:        none
+ * Date of creation:    01.06.2019
+ * Deadline:            -
+ * Information:         This will be the Main Menu containing
+ *                      start| options| exit
+ *                      and a canvas for drawing at the right half
+ *
+ * Notes:               todo anything
+ *
+ */
+
 package main.scenes;
 
-import javafx.event.EventHandler;
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class MenuMainScene extends Scene {

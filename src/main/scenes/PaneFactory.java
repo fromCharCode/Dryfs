@@ -1,11 +1,19 @@
+/*
+ * Author:              fromCharCode - David Schneider
+ * Contribution:        none
+ * Date of creation:    01.06.2019
+ * Deadline:            -
+ * Information:         In this class we use the factory method design pattern to create the different layouts
+ *
+ * Notes:               
+ *
+ */
+
 package main.scenes;
 
-import javafx.collections.ObservableList;
-import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
-import java.util.ArrayList;
+import main.debug.Logger;
 
 public class PaneFactory {
 
@@ -14,36 +22,24 @@ public class PaneFactory {
     public Pane createPane(PaneType type, Stage stage){
         Pane root;
         this.stage = stage;
+        Logger.log(this.getClass(), ("Creating pane object of Type: " + type.toString()));
         switch (type.getInstance()){
             case MAINMENU:
-                log("Creating MainMenu..");
                 root = new MenuMainScene(stage);
                 break;
             case GAMESCENE:
-                log("Creating GameScene..");
                 root = new GameScene(stage);
                 break;
             case PLAYERMENU:
-                log("Creating PlayerMenu..");
                 root = new MenuPlayerScene(stage);
                 break;
             case OPTIONSMENU:
-                log("Creating OptionsMenu..");
                 root = new MenuOptionsScene(stage);
                 break;
 
                 default: return null;
         }
 
-        log("Pane root: " + root + "| elems: " + root.getChildren().size());
-        ObservableList<Node> children = root.getChildren();
-        for (Node n : children){
-            log(n.toString());
-        }
         return root;
-    }
-
-    private void log(String content){
-        System.out.println(this.getClass().toString() + ": " + content);
     }
 }

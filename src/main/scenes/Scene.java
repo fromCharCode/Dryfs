@@ -1,3 +1,14 @@
+/*
+ * Author:              fromCharCode - David Schneider
+ * Contribution:        none
+ * Date of creation:    01.06.2019
+ * Deadline:            -
+ * Information:         Abstract scene extending pane. Will be used in PaneFactory
+ *
+ * Notes:               todo: clean up: create just one main menu scene, use this, delete output
+ *
+ */
+
 package main.scenes;
 
 import javafx.scene.Parent;

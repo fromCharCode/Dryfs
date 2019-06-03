@@ -18,17 +18,21 @@ Classes:
 	- name of contributor
 	- date of creation
 	- if given a deadline
-	- informations for other contributors
+	- informations for other contributors -> what is the class for, where are problems, important interfaces?, etc..
 	- own notes 
+	->
+		/*
+		 * Author:              fromCharCode - David Schneider
+		 * Contribution:        none
+		 * Date of creation:    01.06.2019
+		 * Deadline:            -
+		 * Information:         this class is the main.
+		 *                      JavaFX life cycle: launch(args) -> init() -> start() -> stop()
+		 *
+		 * Notes:               todo: clean up: create just one main menu scene, use this, delete output
+		 *                       
+		 */
 
-	/*
-	 * fromCharCode - David Schneider
-	 * 03.06.2019
-	 * -
-	 * this class is .. on line X there is a bug, causing problem A, ...
-	 *
-	 * Notes: xyz, a + b = c, refactor methods foo(), bar(), ...
-	*/
 - classname begins with capital letter, each new word begins with capital as well e.g.: KonkreteKlasse.class
 
 

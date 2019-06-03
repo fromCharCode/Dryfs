@@ -1,3 +1,20 @@
+/*
+ * Author:              fromCharCode - David Schneider
+ * Contribution:        none
+ * Date of creation:    01.06.2019
+ * Deadline:            -
+ * Information:         The GameScene has one left menu, (later) one top and its canvas
+ *                      left menu: brush-settings, colors, clean canvas, (later) tools, etc.
+ *                      top menu: new Game, exit, etc...
+ *                      canvas: the field for our game. we need to take x percent of the bottom
+ *                          to paste it into the top of the next canvas user.
+ *
+ * Notes:               todo: clean up: create just one main menu scene, use this, delete output
+ *
+ */
+
+
+
 package main.scenes;
 
 import javafx.beans.value.ChangeListener;

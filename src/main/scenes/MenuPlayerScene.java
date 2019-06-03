@@ -1,3 +1,15 @@
+/*
+ * Author:              fromCharCode - David Schneider
+ * Contribution:        none
+ * Date of creation:    01.06.2019
+ * Deadline:            -
+ * Information:         Here we will set up our colors, width, height, num of players and maybe a background
+ *                      this class suffers from redundancy -> need to refactor!!!
+ *
+ * Notes:
+ *
+ */
+
 package main.scenes;
 
 import javafx.event.ActionEvent;
